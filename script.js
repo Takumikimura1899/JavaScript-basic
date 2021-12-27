@@ -1,102 +1,36 @@
 'use strict';
 
-function logger() {
-  console.log('My name is taku');
-}
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
 
-logger();
-logger();
-logger();
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
 
-function fruitProcessor(apples, oranges) {
-  const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
-  return juice;
-}
+// const years = new Array(1991, 1984, 2008, 2020);
+// console.log(years);
 
-const appleJuice = fruitProcessor(5, 0);
-console.log(appleJuice);
+console.log(friends[0]);
+console.log(friends[2]);
 
-const appleOrangeJuice = fruitProcessor(2, 4);
-console.log(appleOrangeJuice);
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
 
-const num = Number('23');
-console.log(typeof num, num);
+friends[2] = 'Jay';
+console.log(friends);
 
-const age1 = calcAge1(1991);
+const firstName = 'Jonas';
+const jonas = [firstName, 'Schmedtmann', 2037 - 1991, 'teacher', friends];
+console.log(jonas, jonas.length);
 
-function calcAge1(birthYear) {
-  return 2037 - birthYear;
-}
-
-const calcAge2 = function (birthYear) {
+const calcAge = function (birthYear) {
   return 2037 - birthYear;
 };
+const years = [1990, 1967, 2002, 2010, 2018];
 
-const age2 = calcAge2(1991);
-console.log(age1, age2);
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+console.log(age1, age2, age3);
 
-const calcAge3 = (birthYear) => 2037 - birthYear;
-const age3 = calcAge3(1991);
-console.log(age3);
-
-const yearsUntilRetirement = (birthYear, firstName) => {
-  const age = 2037 - birthYear;
-  const retirement = 65 - age;
-  //   return retirement;
-  return `${firstName} retires in ${retirement} years`;
-};
-
-console.log(yearsUntilRetirement(1991, 'Jonas'));
-console.log(yearsUntilRetirement(1980, 'Bob'));
-
-function cutFruitPieces(fruit) {
-  return fruit * 4;
-}
-
-console.log(
-  ((apples, oranges) => {
-    const applePieces = cutFruitPieces(apples);
-    const orangePieces = cutFruitPieces(oranges);
-    return `Juice with ${applePieces} piece of apple and ${orangePieces} pieces of orange.`;
-  })(2, 3)
-);
-
-const calcAge4 = function (birthYear) {
-  return 2037 - birthYear;
-};
-
-const yearsUntilRetirement2 = function (birthYear, firstName) {
-  const age = calcAge4(birthYear);
-  const retirement = 65 - age;
-
-  if (retirement > 0) {
-    console.log(`${firstName} retires in ${retirement} years`);
-    return retirement;
-  } else {
-    console.log(`${firstName} has already retired!`);
-    return -1;
-  }
-};
-
-console.log(yearsUntilRetirement2(1991, 'Jonas'));
-console.log(yearsUntilRetirement2(1950, 'Mike'));
-
-// challenge
-const calcAverage = (a, b, c) => (a + b + c) / 3;
-
-const scoreDolphins = calcAverage(44, 23, 71);
-const scoreKoalas = calcAverage(65, 54, 49);
-
-const checkWinner = function (avgDolphins, avgKoalas) {
-  if (avgDolphins >= 2 * avgKoalas) {
-    console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
-  } else if (avgKoalas >= 2 * avgDolphins) {
-    console.log(`Koalas win (${avgKoalas} vs ${avgDolphins})`);
-  } else {
-    console.log('No team wins...');
-  }
-};
-
-checkWinner(scoreDolphins, scoreKoalas);
-checkWinner(300, 20);
-checkWinner(134, 596);
+console.log(years.map((year) => calcAge(year)));
